@@ -11,6 +11,17 @@ var core_1 = require("@angular/core");
 var housing_location_component_1 = require("../housing-location/housing-location.component");
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
+        this.baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+        this.housingLocation = {
+            id: 9999,
+            name: 'Test Home',
+            city: 'Test city',
+            state: 'ST',
+            photo: this.baseUrl + "/example-house.jpg",
+            availableUnits: 99,
+            wifi: true,
+            laundry: false
+        };
     }
     HomeComponent = __decorate([
         core_1.Component({
