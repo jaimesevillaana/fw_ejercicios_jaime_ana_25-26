@@ -9,6 +9,7 @@ exports.__esModule = true;
 exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var home_component_1 = require("./home/home.component");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = core_1.signal('mi_app_03');
@@ -16,7 +17,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
-            imports: [router_1.RouterOutlet],
+            imports: [router_1.RouterOutlet, home_component_1.HomeComponent],
             templateUrl: './app.component.html',
             styleUrl: './app.component.css'
         })
