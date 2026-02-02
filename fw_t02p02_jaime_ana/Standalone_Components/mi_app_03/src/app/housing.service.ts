@@ -1,17 +1,12 @@
-import { Component, inject } from '@angular/core';
-import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { HousinglocationInfo } from '../housinglocation';
-import { HousingService } from '../housing.service';
-@Component({
-  selector: 'app-home',
-  imports: [HousingLocationComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
-})
-export class HomeComponent {
-  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+import { Injectable } from '@angular/core';
+import {HousinglocationInfo} from './housinglocation';
 
-  housingLocationList: HousinglocationInfo[] = [
+@Injectable({
+  providedIn: 'root'
+})
+export class HousingService {
+  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+  protected housingLocationList: HousinglocationInfo[] = [
     {
       id: 0,
       name: 'Acme Fresh Start Housing',
@@ -113,10 +108,14 @@ export class HomeComponent {
       laundry: true,
     },
   ];
-housingService: HousingService = inject(HousingService);
+  getAllHousingLocations(): HousinglocationInfo[] {
+   return this.housingLocationList;
+  }
 
-  constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
+  getHousingLocationById(id: number): HousinglocationInfo | undefined {
+   return this.housingLocationList.find(
+    (housingLocation) => housingLocation.id === id
+   );
   }
 
 }

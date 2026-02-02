@@ -6,12 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.HomeComponent = void 0;
+exports.HousingService = void 0;
 var core_1 = require("@angular/core");
-var housing_location_component_1 = require("../housing-location/housing-location.component");
-var housing_service_1 = require("../housing.service");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+var HousingService = /** @class */ (function () {
+    function HousingService() {
         this.baseUrl = 'https://angular.dev/assets/images/tutorials/common';
         this.housingLocationList = [
             {
@@ -115,17 +113,18 @@ var HomeComponent = /** @class */ (function () {
                 laundry: true
             },
         ];
-        this.housingService = core_1.inject(housing_service_1.HousingService);
-        this.housingLocationList = this.housingService.getAllHousingLocations();
     }
-    HomeComponent = __decorate([
-        core_1.Component({
-            selector: 'app-home',
-            imports: [housing_location_component_1.HousingLocationComponent],
-            templateUrl: './home.component.html',
-            styleUrl: './home.component.css'
+    HousingService.prototype.getAllHousingLocations = function () {
+        return this.housingLocationList;
+    };
+    HousingService.prototype.getHousingLocationById = function (id) {
+        return this.housingLocationList.find(function (housingLocation) { return housingLocation.id === id; });
+    };
+    HousingService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], HomeComponent);
-    return HomeComponent;
+    ], HousingService);
+    return HousingService;
 }());
-exports.HomeComponent = HomeComponent;
+exports.HousingService = HousingService;
