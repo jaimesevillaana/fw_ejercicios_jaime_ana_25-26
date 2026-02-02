@@ -115,9 +115,19 @@ var HomeComponent = /** @class */ (function () {
                 laundry: true
             },
         ];
+        this.filteredLocationList = [];
         this.housingService = core_1.inject(housing_service_1.HousingService);
         this.housingLocationList = this.housingService.getAllHousingLocations();
+        this.filteredLocationList = this.housingLocationList;
     }
+    HomeComponent.prototype.filterResults = function (text) {
+        if (!text) {
+            this.filteredLocationList = this.housingLocationList;
+            return;
+        }
+        this.filteredLocationList =
+            this.housingLocationList.filter(function (housingLocation) { return housingLocation === null || housingLocation === void 0 ? void 0 : housingLocation.city.toLowerCase().includes(text.toLowerCase()); });
+    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'app-home',
