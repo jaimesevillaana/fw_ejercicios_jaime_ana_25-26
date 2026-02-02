@@ -120,6 +120,9 @@ var HousingService = /** @class */ (function () {
     HousingService.prototype.getHousingLocationById = function (id) {
         return this.housingLocationList.find(function (housingLocation) { return housingLocation.id === id; });
     };
+    HousingService.prototype.submitApplication = function (firstName, lastName, email) {
+        console.log("Homes application received: firstName: " + firstName + ", lastName:\n                                              " + lastName + ", email: " + email + ".");
+    };
     HousingService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
