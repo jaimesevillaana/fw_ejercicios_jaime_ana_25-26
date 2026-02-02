@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.HousingLocationComponent = void 0;
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var HousingLocationComponent = /** @class */ (function () {
     function HousingLocationComponent() {
         this.housingLocation = core_1.input.required();
@@ -15,7 +16,7 @@ var HousingLocationComponent = /** @class */ (function () {
     HousingLocationComponent = __decorate([
         core_1.Component({
             selector: 'app-housing-location',
-            imports: [],
+            imports: [router_1.RouterLink],
             templateUrl: './housing-location.component.html',
             styleUrl: './housing-location.component.css'
         })
